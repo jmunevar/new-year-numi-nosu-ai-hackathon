@@ -5,45 +5,61 @@ const App = () => {
   const [inputText, setInputText] = useState('');
   const [messages, setMessages] = useState<string[]>([]);
 
-export function App() {
-  const [count, setCount] = useState(0)
+  // Handle input change
+  const handleInputChange = (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    setInputText(target.value);
+  };
+
+  // Handle form submission
+  const handleSubmit = (e: Event) => {
+    e.preventDefault();
+    if (inputText.trim()) {
+      setMessages([...messages, inputText]);  // Add message to the array
+      setInputText('');  // Clear the input field
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
-        </a>
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+      <h1>Friendly Music AI</h1>
+      <div style={{ marginBottom: '20px' }}>
+        {messages.map((message, index) => (
+          <div key={index} style={{ marginBottom: '10px' }}>
+            <strong>You: </strong>{message}
+          </div>
+        ))}
       </div>
-      <h1>Vite + Preact</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <div class="chat-container">
-            <div class="message-box">
-              <textarea id="inputBox" placeholder="Type your message here..." rows="1"></textarea>
-            </div>
-        </div>
-      </div>
-      <p>
-        Check out{' '}
-        <a
-          href="https://preactjs.com/guide/v10/getting-started#create-a-vite-powered-preact-app"
-          target="_blank"
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={inputText}
+          onInput={handleInputChange}
+          placeholder="Type your message..."
+          style={{
+            padding: '10px',
+            width: '300px',
+            marginRight: '10px',
+            border: '1px solid #ccc',
+            borderRadius: '4px',
+          }}
+        />
+        <button
+          type="submit"
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#4CAF50',
+            color: 'white',
+            border: 'none',
+            cursor: 'pointer',
+            borderRadius: '4px',
+          }}
         >
-          create-preact
-        </a>
-        , the official Preact + Vite starter
-      </p>
-      <p class="read-the-docs">
-        Click on the Vite and Preact logos to learn more
-      </p>
-    </>
-  )
-}
+          Send
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default App;
