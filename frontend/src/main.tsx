@@ -1,5 +1,4 @@
-import { render } from 'preact'
-import './index.css'
-import { App } from './app.tsx'
+import { h, render } from 'preact';
+import App from './app.tsx';
 
-render(<App />, document.getElementById('app')!)
+render(<App />, document.getElementById('app') as HTMLElement);

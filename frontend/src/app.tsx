@@ -1,7 +1,9 @@
-import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import viteLogo from '/vite.svg'
-import './app.css'
+import { h } from 'preact';
+import { useState } from 'preact/hooks';
+
+const App = () => {
+  const [inputText, setInputText] = useState('');
+  const [messages, setMessages] = useState<string[]>([]);
 
 export function App() {
   const [count, setCount] = useState(0)
@@ -43,3 +45,5 @@ export function App() {
     </>
   )
 }
+
+export default App;
