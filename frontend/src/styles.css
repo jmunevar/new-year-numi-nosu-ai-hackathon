@@ -1,0 +1,50 @@
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.preact:hover {
+  filter: drop-shadow(0 0 2em #673ab8aa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+.message {
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 60%;
+  border-radius: 4px;
+  word-wrap: break-word;
+}
+
+/* User message styles */
+.user {
+  background-color: #cfe9fc; /* Light blue */
+  align-self: flex-end;      /* Align user message to the right */
+  margin-left: auto;         /* Push to the right */
+  margin-right: 0;
+}
+
+/* Backend message styles */
+.backend {
+  background-color: #e1e1e1; /* Light gray */
+  align-self: flex-start;    /* Align backend message to the left */
+  margin-left: 0;
+  margin-right: auto;        /* Push to the left */
+}
