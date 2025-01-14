@@ -1,22 +1,42 @@
+import './styles.css';
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
+import axios from 'axios';
+import Message from './Message';
 
 const App = () => {
   const [inputText, setInputText] = useState('');
-  const [messages, setMessages] = useState<string[]>([]);
+  const [messages, setMessages] = useState<{ name: string; text: string }[]>([]);
 
-  // Handle input change
+  // Handle the input change
   const handleInputChange = (e: Event) => {
     const target = e.target as HTMLInputElement;
     setInputText(target.value);
   };
 
-  // Handle form submission
-  const handleSubmit = (e: Event) => {
+  // Handle form submission (sending the input text to the backend)
+  const handleSubmit = async (e: Event) => {
     e.preventDefault();
-    if (inputText.trim()) {
-      setMessages([...messages, inputText]);  // Add message to the array
-      setInputText('');  // Clear the input field
+
+    if (inputText.trim() !== '') {
+      try {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { name: 'user', text: inputText }
+        ]);
+        const response = await axios.post('http://localhost:8000/message', { text: inputText });
+        const newMessage = response.data.message;
+
+        // Add the new message to the list (could be user or backend response)
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { name: 'backend', text: newMessage },
+        ]);
+
+        setInputText('');  // Clear the input field after submission
+      } catch (error) {
+        console.error('Error calling the backend:', error);
+      }
     }
   };
 
@@ -25,9 +45,7 @@ const App = () => {
       <h1>Friendly Music AI</h1>
       <div style={{ marginBottom: '20px' }}>
         {messages.map((message, index) => (
-          <div key={index} style={{ marginBottom: '10px' }}>
-            <strong>You: </strong>{message}
-          </div>
+          <Message key={index} name={message.name} text={message.text} />
         ))}
       </div>
       <form onSubmit={handleSubmit}>
