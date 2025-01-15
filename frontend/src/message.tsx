@@ -7,7 +7,7 @@ interface MessageProps {
 
 const Message = ({ name, text }: MessageProps) => {
   return (
-    <div class={name} style={{ marginBottom: '10px' }}>
+    <div class={name + " message"} style={{ marginBottom: '10px' }}>
       {text}
     </div>
   );

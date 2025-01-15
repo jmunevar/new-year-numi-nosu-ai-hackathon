@@ -1,29 +1,29 @@
+body {
+  background-color: #defbec;
+}
+
 #app {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  * {
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+}
+
+#app > * {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
+.chat {
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.preact:hover {
-  filter: drop-shadow(0 0 2em #673ab8aa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 
 .message {
   padding: 10px;
@@ -33,18 +33,37 @@
   word-wrap: break-word;
 }
 
-/* User message styles */
 .user {
-  background-color: #cfe9fc; /* Light blue */
-  align-self: flex-end;      /* Align user message to the right */
+  background-color: #b9f1df;
+  text-align: left;
   margin-left: auto;         /* Push to the right */
   margin-right: 0;
 }
 
-/* Backend message styles */
 .backend {
-  background-color: #e1e1e1; /* Light gray */
-  align-self: flex-start;    /* Align backend message to the left */
+  background-color: #f2f9f5;
+  text-align: left;
   margin-left: 0;
   margin-right: auto;        /* Push to the left */
+}
+
+form {
+  display: inherit;
+  width: 100%;
+  * {
+    border-radius: 1.2em;
+    padding: 10px;
+    border: none;
+  }
+}
+
+input {
+  width: -webkit-fill-available;
+  background: #f2f9f5;
+}
+
+button {
+  width: fit-content;
+  background-color: #386054;
+  color: white;
 }

@@ -43,7 +43,7 @@ const App = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h1>Friendly Music AI</h1>
-      <div style={{ marginBottom: '20px' }}>
+      <div class='chat'>
         {messages.map((message, index) => (
           <Message key={index} name={message.name} text={message.text} />
         ))}
@@ -54,25 +54,8 @@ const App = () => {
           value={inputText}
           onInput={handleInputChange}
           placeholder="Type your message..."
-          style={{
-            padding: '10px',
-            width: '300px',
-            marginRight: '10px',
-            border: '1px solid #ccc',
-            borderRadius: '4px',
-          }}
         />
-        <button
-          type="submit"
-          style={{
-            padding: '10px 20px',
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            border: 'none',
-            cursor: 'pointer',
-            borderRadius: '4px',
-          }}
-        >
+        <button type="submit">
           Send
         </button>
       </form>
