@@ -95,7 +95,13 @@ def process_message(message: str):
     """
     Process a single message and return appropriate response
     """
-    current_responses = conversation_states.get("responses", [])
+    # Check if this is the first message (empty conversation)
+    if not conversation_states.get("responses"):
+        conversation_states["responses"] = []
+        # Return the first question immediately
+        return questions[0], False
+    
+    current_responses = conversation_states["responses"]
     current_responses.append(message)
     conversation_states["responses"] = current_responses
     
