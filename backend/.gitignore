@@ -6,6 +6,7 @@ __pycache__/
 
 # .env file (for environment variables)
 .env
+backend/env
 
 # IDE/editor settings
 .vscode/
