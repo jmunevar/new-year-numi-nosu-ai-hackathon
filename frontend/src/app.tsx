@@ -2,7 +2,7 @@ import './styles.css';
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
 import axios from 'axios';
-import Message from './Message';
+import Message from './message';
 
 const App = () => {
   const [inputText, setInputText] = useState('');
