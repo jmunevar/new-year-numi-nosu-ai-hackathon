@@ -1,0 +1,69 @@
+body {
+  background-color: #defbec;
+}
+
+#app {
+  margin: 0 auto;
+  padding: 2rem;
+  * {
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+}
+
+#app > * {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+}
+
+.chat {
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 60%;
+  border-radius: 4px;
+  word-wrap: break-word;
+}
+
+.user {
+  background-color: #b9f1df;
+  text-align: left;
+  margin-left: auto;         /* Push to the right */
+  margin-right: 0;
+}
+
+.backend {
+  background-color: #f2f9f5;
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;        /* Push to the left */
+}
+
+form {
+  display: inherit;
+  width: 100%;
+  * {
+    border-radius: 1.2em;
+    padding: 10px;
+    border: none;
+  }
+}
+
+input {
+  width: -webkit-fill-available;
+  background: #f2f9f5;
+}
+
+button {
+  width: fit-content;
+  background-color: #386054;
+  color: white;
+}

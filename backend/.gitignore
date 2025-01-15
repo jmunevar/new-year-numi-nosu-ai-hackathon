@@ -1,0 +1,19 @@
+# Python virtual environment
+venv/
+
+# Python bytecode files
+__pycache__/
+
+# .env file (for environment variables)
+.env
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
